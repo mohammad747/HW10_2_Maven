@@ -17,9 +17,8 @@ public class Address implements Serializable {
      * data types should be wrapper to enforcing nullability in the database
      */
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long address_id;
 
     @Column(name = "city")
     String city;
@@ -27,19 +26,19 @@ public class Address implements Serializable {
     @Column(name = "state")
     String state;
 
-    @Column(name = "number", nullable = false)
-    Long number;
+    @Column(name = "number", nullable = false, unique = true)
+    String number;
 
     @Column(name = "postal_address")
     String postalAddress;
 
     @Column(name = "postal_code")
-    String postalCode;
+    Long postalCode;
 
     public Address() {
     }
 
-    public Address(String city, String state, Long number, String postalAddress, String postalCode) {
+    public Address(String city, String state, String number, String postalAddress, Long postalCode) {
         this.city = city;
         this.state = state;
         this.number = number;
@@ -47,12 +46,12 @@ public class Address implements Serializable {
         this.postalCode = postalCode;
     }
 
-    public Long getId() {
-        return id;
+    public Long getAddress_id() {
+        return address_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setAddress_id(Long address_id) {
+        this.address_id = address_id;
     }
 
     public String getCity() {
@@ -71,11 +70,11 @@ public class Address implements Serializable {
         this.state = state;
     }
 
-    public Long getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(Long number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
@@ -87,18 +86,18 @@ public class Address implements Serializable {
         this.postalAddress = postalAddress;
     }
 
-    public String getPostalCode() {
+    public Long getPostalCode() {
         return postalCode;
     }
 
-    public void setPostalCode(String postalCode) {
+    public void setPostalCode(Long postalCode) {
         this.postalCode = postalCode;
     }
 
     @Override
     public String toString() {
         return "Address{" +
-                "id=" + id +
+                "address_id=" + address_id +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", number=" + number +

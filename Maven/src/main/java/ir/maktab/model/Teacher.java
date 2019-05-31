@@ -19,7 +19,7 @@ public class Teacher implements Serializable {
      * data types should be wrapper to enforcing nullability in the database
      */
     @Id
-    @Column(name = "id")
+    @Column(name = "teacher_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -37,6 +37,10 @@ public class Teacher implements Serializable {
 
     @Column(name = "birthday")
     private LocalDate birthday;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id")
+    private Address address;
 
     /**
      * Default constructor
@@ -112,6 +116,14 @@ public class Teacher implements Serializable {
         this.birthday = birthday;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     /**
      * ToString because we don't want to see hashCode
      * instead of real data
@@ -125,6 +137,7 @@ public class Teacher implements Serializable {
                 ", teacherCode=" + teacherCode +
                 ", salary=" + salary +
                 ", birthday=" + birthday +
+                ", address=" + address +
                 '}';
     }
 }

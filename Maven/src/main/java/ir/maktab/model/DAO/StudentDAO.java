@@ -23,4 +23,7 @@ public interface StudentDAO extends BaseDAO<Student> {
      * @return
      */
     List<Student> searchStudentsByNameCriteria(String name);
+
+
+    List<Student> findStudnesWhereTheirCityIsNot(String city);
 }

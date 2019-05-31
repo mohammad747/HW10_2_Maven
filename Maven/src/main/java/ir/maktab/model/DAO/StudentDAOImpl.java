@@ -65,4 +65,18 @@ public class StudentDAOImpl extends BaseDAOImpl<Student> implements StudentDAO {
 
         return results;
     }
+
+    @Override
+    public List<Student> findStudnesWhereTheirCityIsNot(String city) {
+         Session session = factory.openSession();
+
+         List<Student> students;
+
+         students = session.createQuery("from Student s where s.address.city!=:c")
+                 .setParameter("c", city).getResultList();
+
+         session.close();
+
+         return students;
+    }
 }

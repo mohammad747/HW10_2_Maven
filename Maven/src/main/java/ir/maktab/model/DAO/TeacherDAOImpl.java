@@ -73,4 +73,49 @@ public class TeacherDAOImpl extends BaseDAOImpl<Teacher> implements TeacherDAO {
         return maxMin;
 
     }
+
+    @Override
+    public List<Teacher> findTeachersByTheirCity(String str) {
+
+        Session session = factory.openSession();
+
+        List teachers;
+
+        teachers = session.createQuery("from Teacher t where t.address.city=:str")
+                .setParameter("str", str).getResultList();
+
+        session.close();
+
+        return teachers;
+    }
+
+    @Override
+    public List<Teacher> findTeachersByTheirNumber(String phoneNumber) {
+
+        Session session = factory.openSession();
+
+        List<Teacher> teachers;
+
+        teachers = session.createQuery("from Teacher t  where  t.address.number like :p")
+                .setParameter("p", phoneNumber+"%").getResultList();
+
+        session.close();
+
+        return teachers;
+    }
+
+    @Override
+    public List<Teacher> findTeachersByTheirNumberAndCity(String phoneNumber, String city) {
+
+        Session session = factory.openSession();
+
+        List<Teacher> teachers;
+
+        teachers = session.createQuery("from Teacher t where t.address.city=:c and t.address.number like :p")
+                .setParameter("p", phoneNumber+"%").setParameter("c", city).getResultList();
+
+        session.close();
+
+        return teachers;
+    }
 }

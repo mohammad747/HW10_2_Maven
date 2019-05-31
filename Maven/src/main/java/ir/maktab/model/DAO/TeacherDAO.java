@@ -25,4 +25,11 @@ public interface TeacherDAO extends BaseDAO<Teacher> {
 
 
     List<Teacher> youngestAndOldestTeachers();
+
+
+    List<Teacher> findTeachersByTheirCity(String city);
+
+    List<Teacher> findTeachersByTheirNumber(String phoneNumber);
+
+    List<Teacher> findTeachersByTheirNumberAndCity(String phoneNumber, String city);
 }

@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 /**
  * @author Mohammad hashemi
- *
+ * <p>
  * Teacher entity/Table
  */
 @Entity
@@ -14,7 +14,7 @@ public class Student implements Serializable {
 
     /**
      * Fields or columns
-     *
+     * <p>
      * data types should be wrapper to enforcing nullability in the database
      */
     @Id

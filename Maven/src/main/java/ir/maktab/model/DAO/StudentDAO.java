@@ -12,6 +12,7 @@ public interface StudentDAO extends BaseDAO<Student> {
 
     /**
      * Search students by their name
+     *
      * @param name
      * @return
      */
@@ -19,6 +20,7 @@ public interface StudentDAO extends BaseDAO<Student> {
 
     /**
      * Search students name by their name with Criteria method
+     *
      * @param name
      * @return
      */

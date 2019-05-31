@@ -4,10 +4,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import java.io.Serializable;
+
 /**
  * Implement BaseDAO(CRUD)
- * @author Mohammad hashemi
+ *
  * @param <E>
+ * @author Mohammad hashemi
  */
 public abstract class BaseDAOImpl<E extends Serializable> implements BaseDAO<E> {
 
@@ -21,11 +23,12 @@ public abstract class BaseDAOImpl<E extends Serializable> implements BaseDAO<E> 
 
     /**
      * CREATE
+     *
      * @param e
      */
     @Override
     public void create(E e) {
-        Session session  = factory.openSession();
+        Session session = factory.openSession();
 
         session.beginTransaction();
 
@@ -38,6 +41,7 @@ public abstract class BaseDAOImpl<E extends Serializable> implements BaseDAO<E> 
 
     /**
      * READ
+     *
      * @param id
      * @return
      */
@@ -59,6 +63,7 @@ public abstract class BaseDAOImpl<E extends Serializable> implements BaseDAO<E> 
 
     /**
      * UPDATE
+     *
      * @param e
      * @return
      */
@@ -80,6 +85,7 @@ public abstract class BaseDAOImpl<E extends Serializable> implements BaseDAO<E> 
 
     /**
      * DELETE
+     *
      * @param id
      */
     @Override

@@ -2,9 +2,10 @@ package ir.maktab.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+
 /**
  * @author Mohammad hashemi
- *
+ * <p>
  * Teacher entity/Table
  */
 @Entity
@@ -13,7 +14,7 @@ public class Address implements Serializable {
 
     /**
      * Fields or columns
-     *
+     * <p>
      * data types should be wrapper to enforcing nullability in the database
      */
     @Id
@@ -21,19 +22,19 @@ public class Address implements Serializable {
     private Long address_id;
 
     @Column(name = "city")
-    String city;
+    private String city;
 
     @Column(name = "state")
-    String state;
+    private String state;
 
     @Column(name = "number", nullable = false, unique = true)
-    String number;
+    private String number;
 
     @Column(name = "postal_address")
-    String postalAddress;
+    private String postalAddress;
 
     @Column(name = "postal_code")
-    Long postalCode;
+    private Long postalCode;
 
     public Address() {
     }

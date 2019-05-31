@@ -1,10 +1,12 @@
 package ir.maktab.BaseDao;
 
 import java.io.Serializable;
+
 /**
  * CRUD Interface
- * @author Mohammad hashemi
+ *
  * @param <E>
+ * @author Mohammad hashemi
  */
 public interface BaseDAO<E extends Serializable> {
 

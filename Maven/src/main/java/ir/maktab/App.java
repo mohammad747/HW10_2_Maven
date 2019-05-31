@@ -5,22 +5,18 @@ import ir.maktab.model.DAO.StudentDAO;
 import ir.maktab.model.DAO.StudentDAOImpl;
 import ir.maktab.model.DAO.TeacherDAO;
 import ir.maktab.model.DAO.TeacherDAOImpl;
-import ir.maktab.model.Student;
-import ir.maktab.model.Teacher;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import java.time.LocalDate;
 
 /**
- * Hello world!
- *
+ * @author Mohammad hashemi
+ * <p>
+ * This is a Maven project which is about to learn more about Maven,HQL and DAO
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
+public class App {
+    public static void main(String[] args) {
 
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
 
@@ -29,11 +25,12 @@ public class App
         StudentDAO studentDAO = new StudentDAOImpl(factory);
 
 
-        //every time this command open a new connection to the database.
+        // This command open a new connection to the database.
         Session session = factory.openSession();
 
 
-        //add to database
+        // Add data to database
+
 
 //        Teacher teacher1 = new Teacher("Mohamad","hashemi",1234L,2000.00,LocalDate.of(1995,2,10));
 //        Teacher teacher2 = new Teacher("Mohamad1","hashemi",1235L,2500.00,LocalDate.of(1995,3,10));
@@ -54,7 +51,7 @@ public class App
 //        Address address3 = new Address("Shahriar", "Tehran", "091234512", "first avenue number 3",2563454L);
 //        Address address4 = new Address("Karaj", "Alborz", "093837999", "first avenue number 3",2563454L);
 //        Address address5 = new Address("Tehran", "Tehran", "090334512", "first avenue number 3",2563454L);
-////
+//
 //        Address address6 = new Address("Karaj", "Alborz", "093545720", "first avenue number 3",2898954L);
 //        Address address7 = new Address("Rasht", "Gilan", "091234123", "first avenue number 3",25565654L);
 //        Address address8 = new Address("Shahriar", "Tehran", "091234098", "first avenue number 3",26565654L);
@@ -87,16 +84,20 @@ public class App
 //        studentDAO.create(student4);
 //        studentDAO.create(student5);
 
-        
+
+        // Find teachers where their city is Tehran
         System.out.println(teacherDAO.findTeachersByTheirCity("Tehran"));
 
+        // Find teachers who's phone number starts with '0912'
         System.out.println(teacherDAO.findTeachersByTheirNumber("0912"));
 
-        System.out.println(teacherDAO.findTeachersByTheirNumberAndCity("0912","Rasht"));
+        // Find teachers who's phone number starts with '0912' and their city is 'Rasht'
+        System.out.println(teacherDAO.findTeachersByTheirNumberAndCity("0912", "Rasht"));
 
+        // Find students where their city is not 'Tehran'
         System.out.println(studentDAO.findStudnesWhereTheirCityIsNot("Tehran"));
 
         factory.close();
 
-    }
-}
+    }// End main
+}// End Class

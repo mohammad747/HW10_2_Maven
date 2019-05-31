@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 /**
  * @author Mohammad hashemi
- *
+ * <p>
  * Teacher entity/Table
  */
 @Entity
@@ -15,7 +15,7 @@ public class Teacher implements Serializable {
 
     /**
      * Fields or columns
-     *
+     * <p>
      * data types should be wrapper to enforcing nullability in the database
      */
     @Id
@@ -51,7 +51,8 @@ public class Teacher implements Serializable {
 
     /**
      * Constructor
-     *  @param firstName
+     *
+     * @param firstName
      * @param lastName
      * @param teacherCode
      * @param salary

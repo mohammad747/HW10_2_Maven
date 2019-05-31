@@ -28,7 +28,7 @@ public class TeacherDAOImpl extends BaseDAOImpl<Teacher> implements TeacherDAO {
 
         session.beginTransaction();
 
-        session.createQuery("delete from Teacher t where t.teacherCode = ?1").setParameter(1,teacherCode).executeUpdate();
+        session.createQuery("delete from Teacher t where t.teacherCode = ?1").setParameter(1, teacherCode).executeUpdate();
 
         session.close();
     }
@@ -97,7 +97,7 @@ public class TeacherDAOImpl extends BaseDAOImpl<Teacher> implements TeacherDAO {
         List<Teacher> teachers;
 
         teachers = session.createQuery("from Teacher t  where  t.address.number like :p")
-                .setParameter("p", phoneNumber+"%").getResultList();
+                .setParameter("p", phoneNumber + "%").getResultList();
 
         session.close();
 
@@ -112,7 +112,7 @@ public class TeacherDAOImpl extends BaseDAOImpl<Teacher> implements TeacherDAO {
         List<Teacher> teachers;
 
         teachers = session.createQuery("from Teacher t where t.address.city=:c and t.address.number like :p")
-                .setParameter("p", phoneNumber+"%").setParameter("c", city).getResultList();
+                .setParameter("p", phoneNumber + "%").setParameter("c", city).getResultList();
 
         session.close();
 
